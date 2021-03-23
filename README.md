@@ -24,7 +24,7 @@ license.downloadID=unique-string
 license.customer.name=your-name
 ```
 
-To enocde the file, run: `bas64 ./license.properties > license64.properties`
+To enocde the file, run: `base64 ./license.properties > license64.properties`
 
 Now, take the contents of `license64.properties` and add that as the value of the LICENSE_PROPERTIES environment variable. 
 
