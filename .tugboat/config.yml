@@ -63,9 +63,11 @@ services:
         
         # Start aem for the first time
         - CQ_PORT=4503 CQ_RUNMODE='publish' /opt/aem/publish/crx-quickstart/bin/start
-        - while [ "$(curl --head --location --connect-timeout 5 -s -o /dev/null -w ''%{http_code}'' localhost:4503)" != "200" ]; do sleep 5; done
+        # - while [ "$(curl --head --location --connect-timeout 5 -s -o /dev/null -w ''%{http_code}'' localhost:4503)" != "200" ]; do sleep 5; done
+        - wget -O /dev/null -o /dev/null -t 10 --retry-connrefused http://admin:admin@localhost:4503
       
       start:
         - CQ_PORT=4503 CQ_RUNMODE='publish' /opt/aem/publish/crx-quickstart/bin/start
-        - while [ "$(curl --head --location --connect-timeout 5 -s -o /dev/null -w ''%{http_code}'' localhost:4503)" != "200" ]; do sleep 5; done
+        # - while [ "$(curl --head --location --connect-timeout 5 -s -o /dev/null -w ''%{http_code}'' localhost:4503)" != "200" ]; do sleep 5; done
+        - wget -O /dev/null -o /dev/null -t 10 --retry-connrefused http://admin:admin@localhost:4503
   
